@@ -2,24 +2,32 @@ from tkinter.tix import INTEGER
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
+import Algorithms
+import random
+
+from Algorithms.unsortedData import unsortedData
 
 # Create your views here.
-num = 0
 
+#variable instantiation
 
 def index(request):
     return render(request, 'index.html')
 
-def testList(request):
-    testVector = [1,2,3]
-    return JsonResponse({'testVector': testVector})
-
-
-def testPost(request):
-    global num
+def getDataSize(request):
     try:
-        num = int(request.POST['input'])
+        global dataSize
+        dataSize = int(request.POST['input'])
+        unsortedList = random.sample(range(dataSize), dataSize)
+        print(unsortedList)
+        
     except:
-        print("cannot convert into to string")
-    print(num)
+        print("cannot convert into to int")
+    return HttpResponse(status = 201)
+
+def testBubbleSort(request):
+    try:
+        print("testbubbleSort worked")
+    except:
+        print("ERROR")
     return HttpResponse(status = 201)

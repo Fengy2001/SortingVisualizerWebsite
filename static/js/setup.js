@@ -14,13 +14,13 @@
 //     });
 // })
 
-$(document).on("click", function(asshole){
+$(document).on("submit", function(page){
 
-    asshole.preventDefault();
+    page.preventDefault();
 
     $.ajax({
         type: 'POST',
-        url: 'testPost',
+        url: 'getDataSize',
         data: {input: $('#inputValue').val(), csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()}
     });
 })

@@ -1,11 +1,14 @@
 {% load static %}
-<body id="url" data-url="{% url 'testList' %}">
-    <div id="display"></div>
-    <form action="testPost" id="testPost">
+<body id="url">
+    <div id="display" data-url="{% url 'getDataSize' %}"></div>
+    <form action="getDataSize" id="getDataSize">
         {% csrf_token %}
         <input type="text", id="inputValue"></input>
         <input type="submit" name="inputValue" id="inputValue"></input>
     </form>
+
+    <input type="button" value="Sort" onclick="testBubbleSort"></input>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="{% static 'js/setup.js' %}"></script>
